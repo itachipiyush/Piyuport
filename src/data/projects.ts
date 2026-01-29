@@ -6,7 +6,7 @@ export const projects: Project[] = [
     title: "MediShare - Share Unused Meds, Save Lives",
     description:
       "Platform for donating sealed, valid medicines and allowing verified users to claim them, promoting reuse and reducing waste.",
-    image: "https://ibb.co/GQkmwqg6",
+    image: "https://i.ibb.co/4nZXyzh3/Screenshot-2026-01-29-141146.png",
     techStack: ["React", "Node.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
     demoLink: "https://medishare-opal.vercel.app/",
     githubLink: "https://github.com/itachipiyush/MediShare",
