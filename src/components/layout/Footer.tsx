@@ -10,11 +10,10 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Piyush
+              Piyush Kumar Jha
             </h2>
             <p className="mt-2 text-gray-600 dark:text-gray-400 max-w-md">
-              Building amazing web experiences with modern technologies and
-              design principles.
+              Passionate about building web applications that make a difference.
             </p>
           </div>
 
@@ -75,8 +74,8 @@ const Footer: React.FC = () => {
             © {currentYear} Piyush Jha. All rights reserved.
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 md:mt-0 flex items-center">
-            Made with <Heart size={14} className="mx-1 text-red-500" />
-            by Piyush Jha
+            Made with <Heart className="ml-1 mr-1 text-red-500" size={14} /> by
+            Piyush Jha
           </p>
         </div>
       </div>
