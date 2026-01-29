@@ -117,7 +117,7 @@ const Contact: React.FC = () => {
   } | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -125,27 +125,43 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      setSubmitMessage({
+        type: "error",
+        text: "Please fill in all fields before sending.",
+      });
+      setTimeout(() => {
+        setSubmitMessage(null);
+      }, 5000);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      const mailto = `mailto:piyushjha.2312@gmail.com?subject=${encodeURIComponent(
-        formData.subject
-      )}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-      )}`;
+      // Prepare the body with user information
+      const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
 
-      const tempLink = document.createElement("a");
-      tempLink.href = mailto;
-      tempLink.style.display = "none";
-      document.body.appendChild(tempLink);
-      tempLink.click();
-      document.body.removeChild(tempLink);
+      // Gmail compose URL with pre-filled fields
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=piyushjha.2312@gmail.com&su=${encodeURIComponent(
+        formData.subject,
+      )}&body=${encodeURIComponent(emailBody)}`;
+
+      // Open Gmail in a new tab
+      window.open(gmailUrl, "_blank", "noopener,noreferrer");
 
       setSubmitMessage({
         type: "success",
-        text: "Your default email client has been opened. Please complete sending your message there.",
+        text: "Gmail has been opened in a new tab with your message prepared. Please review and send!",
       });
 
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -155,7 +171,7 @@ const Contact: React.FC = () => {
     } catch {
       setSubmitMessage({
         type: "error",
-        text: "There was an error trying to open your email client.",
+        text: "There was an error opening Gmail. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
