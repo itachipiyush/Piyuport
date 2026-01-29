@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import classNames from "classnames";
@@ -58,6 +58,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -65,6 +66,22 @@ const Navbar: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -137,18 +154,30 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
+        ref={menuRef}
         className={classNames(
-          "fixed inset-0 bg-white dark:bg-gray-900 z-40 flex flex-col p-8 space-y-8 transform transition-transform duration-300 ease-in-out md:hidden",
-          isOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 z-40 flex flex-col p-8 space-y-8 transform transition-transform duration-300 ease-in-out md:hidden",
+          isOpen
+            ? "translate-x-0 bg-white dark:bg-gray-900 bg-opacity-95" // Opaque background
+            : "translate-x-full"
         )}
       >
+        {/* Close Button */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="self-end text-gray-700 dark:text-gray-300 focus:outline-none"
+          aria-label="Close menu"
+        >
+          <X size={24} />
+        </button>
+
         <div className="flex flex-col space-y-6">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               href={link.href}
               name={link.name}
-              onClick={toggleMenu}
+              onClick={() => setIsOpen(false)} // Close menu on navigation
             />
           ))}
         </div>

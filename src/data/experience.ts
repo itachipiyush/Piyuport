@@ -1,25 +1,35 @@
-import { WorkExperience } from '../types';
+import { WorkExperience } from "../types";
 
 export const experiences: WorkExperience[] = [
   {
-    company: 'TechCorp Inc.',
-    position: 'Senior Frontend Developer',
-    duration: 'Jan 2022 - Present',
-    description: 'Leading the frontend development team, architecting scalable solutions, and implementing best practices for code quality and performance.',
-    technologies: ['React', 'TypeScript', 'Redux', 'GraphQL']
+    company: "BVICAM",
+    position: "ASP.NET Intern",
+    duration: "Jan 2026 - Present",
+    description:
+      "Developing a Student Grievance Portal System to streamline the process of addressing student concerns and feedback.",
+    technologies: ["ASP.NET", "C#", "SQL Server", "HTML", "CSS", "JavaScript"],
   },
   {
-    company: 'Digital Solutions LLC',
-    position: 'Full Stack Developer',
-    duration: 'Mar 2019 - Dec 2021',
-    description: 'Developed and maintained full-stack applications, collaborated with cross-functional teams, and contributed to the entire software development lifecycle.',
-    technologies: ['JavaScript', 'Node.js', 'Express', 'MongoDB', 'React']
+    company: "MediShare",
+    position: "Full Stack Developer",
+    duration: "Feb 2025 - Apr 2025",
+    description:
+      "Developed a Platform for donating sealed, valid medicines and allowing verified users to claim them, promoting reuse and reducing waste.",
+    technologies: ["JavaScript", "Node.js", "React", "Supabase", "PostgreSQL"],
   },
   {
-    company: 'WebTech Innovations',
-    position: 'Junior Web Developer',
-    duration: 'Jul 2017 - Feb 2019',
-    description: 'Built responsive web applications, implemented UI components, and assisted in the development of APIs and backend services.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'PHP']
-  }
+    company: "JsonDataShare",
+    position: "Full Stack Developer",
+    duration: "Nov 2024 - Dec 2024",
+    description:
+      "Built responsive web application, implemented UI components, and optimized backend services for performance and scalability.",
+    technologies: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "HTML",
+      "CSS",
+    ],
+  },
 ];

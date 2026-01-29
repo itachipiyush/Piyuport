@@ -20,12 +20,11 @@ const Hero: React.FC = () => {
               Piyush Jha
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-6">
-              Frontend Developer & UI/UX Designer
+              Software Developer
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto">
-              I build exceptional digital experiences with modern technologies.
-              Specializing in creating beautiful, functional, and user-friendly
-              websites.
+              I build scalable and efficient web applications with a focus on
+              performance and user experience.
             </p>
           </div>
 
