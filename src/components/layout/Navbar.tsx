@@ -129,10 +129,15 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a
           href="#home"
-          className="text-xl font-bold text-gray-900 dark:text-white transition-colors"
+          className="flex items-center text-xl font-bold text-gray-900 dark:text-white transition-colors"
           aria-label="Home"
         >
-          Piyush
+          <img
+            src="/ico.png"
+            alt="Piyush logo"
+            className="w-8 h-8 mr-3 rounded-full"
+          />
+          <span>Piyush</span>
         </a>
 
         {/* Desktop Navigation */}
