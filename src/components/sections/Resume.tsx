@@ -1,10 +1,13 @@
-import React from 'react';
-import { Download, Briefcase, Calendar } from 'lucide-react';
-import { experiences } from '../../data/experience';
+import React from "react";
+import { Download, Briefcase, Calendar } from "lucide-react";
+import { experiences } from "../../data/experience";
 
 const Resume: React.FC = () => {
   return (
-    <section id="resume" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
+    <section
+      id="resume"
+      className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -13,9 +16,9 @@ const Resume: React.FC = () => {
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 mb-8">
             My professional journey and experience
           </p>
-          <a 
-            href="/resume.pdf" 
-            download
+          <a
+            href="/resume.pdf"
+            download="Resume_Piyush_Kumar_Jha.pdf"
             className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
           >
             <Download size={18} className="mr-2" />
@@ -35,7 +38,10 @@ const Resume: React.FC = () => {
 
             <div className="space-y-12">
               {experiences.map((experience, index) => (
-                <div key={index} className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div
+                  key={index}
+                  className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow"
+                >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                       {experience.position}
@@ -45,19 +51,19 @@ const Resume: React.FC = () => {
                       <span>{experience.duration}</span>
                     </div>
                   </div>
-                  
+
                   <p className="text-lg font-medium text-blue-600 dark:text-blue-400 mb-4">
                     {experience.company}
                   </p>
-                  
+
                   <p className="text-gray-600 dark:text-gray-400 mb-4">
                     {experience.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     {experience.technologies.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex} 
+                      <span
+                        key={techIndex}
                         className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md"
                       >
                         {tech}

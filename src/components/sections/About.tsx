@@ -17,6 +17,7 @@ const About: React.FC = () => {
       backend: skills.filter((skill) => skill.category === "backend"),
       design: skills.filter((skill) => skill.category === "design"),
       tools: skills.filter((skill) => skill.category === "tools"),
+      language: skills.filter((skill) => skill.category === "language"),
     }),
     [skills],
   );
@@ -87,8 +88,36 @@ const About: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               My Skills
             </h3>
-
             <div className="space-y-8">
+              {/* Language Skills */}
+              <div>
+                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">
+                  Programming Languages
+                </h4>
+                {skillsByCategory.language.length > 0 ? (
+                  <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    {skillsByCategory.language.map((skill) => (
+                      <li
+                        key={skill.name}
+                        className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 p-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        aria-label={`Skill: ${skill.name}`}
+                      >
+                        <span className="text-red-600 dark:text-red-400">
+                          {renderIcon(skill.icon)}
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          {skill.name}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-600 dark:text-gray-400">
+                    No skills available
+                  </p>
+                )}
+              </div>
+
               {/* Frontend Skills */}
               <div>
                 <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">

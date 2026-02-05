@@ -222,8 +222,41 @@ const Contact: React.FC = () => {
                 href="https://www.google.co.in/maps/place/New+Delhi,+Delhi/"
               />
             </div>
-
             <div className="mt-10">
+              <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+                Availability
+              </h4>
+
+              <div className="space-y-4">
+                {/* Status Badge */}
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-green-50/50 dark:bg-green-900/10 border border-green-200 dark:border-green-900/30 w-fit">
+                  <span className="relative flex h-3 w-3">
+                    {/* Breathing Animation */}
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  <span className="text-sm font-medium text-green-700 dark:text-green-400">
+                    Available for new projects
+                  </span>
+                </div>
+
+                {/* Response Time Info */}
+                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="p-1.5 rounded-lg bg-gray-100 dark:bg-gray-800">
+                    <span role="img" aria-label="lightning">
+                      ⚡
+                    </span>
+                  </div>
+                  <span>
+                    Responds within{" "}
+                    <span className="text-gray-900 dark:text-white font-semibold">
+                      24 hours
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8">
               <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
                 Follow Me
               </h4>

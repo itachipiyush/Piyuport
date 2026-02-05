@@ -12,7 +12,7 @@ export interface Project {
 export interface Skill {
   name: string;
   icon: string;
-  category: 'frontend' | 'backend' | 'design' | 'tools';
+  category: "frontend" | "backend" | "design" | "tools" | "language";
 }
 
 export interface WorkExperience {
@@ -23,4 +23,4 @@ export interface WorkExperience {
   technologies: string[];
 }
 
-export type ThemeMode = 'light' | 'dark';
+export type ThemeMode = "light" | "dark";

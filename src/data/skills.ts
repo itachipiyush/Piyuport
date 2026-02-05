@@ -57,6 +57,11 @@ export const skills: Skill[] = [
     category: "backend",
   },
   {
+    name: "Java",
+    icon: "Coffee",
+    category: "language",
+  },
+  {
     name: "Git",
     icon: "GitBranch",
     category: "tools",
